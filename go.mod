@@ -1,4 +1,4 @@
-module sim-projects/app-protocol
+module github.com/primayou/app-protocol-learn
 
 go 1.16
 
