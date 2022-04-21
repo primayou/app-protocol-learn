@@ -1,0 +1,25 @@
+syntax = "proto3";
+package transactions;
+option go_package = "./transactions";
+
+message Transaction {
+    string SenderName = 1;
+    string SenderReferenceID = 2;
+    string SenderAccountNumber = 3;
+    string ReceiverName = 4;
+    string ReceiverReferenceID = 5;
+    string ReceiverAccountNumber = 6;
+    string Currency = 7;
+    string Amount = 8;
+}
+
+message CreateTransactionReq {
+    Transaction Transaction = 1;
+}
+
+message CreateTransactionRsp {}
+
+
+service Users {
+    rpc CreateTransaction (CreateTransactionReq) returns (CreateTransactionRsp);   
+}

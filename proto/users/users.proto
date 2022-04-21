@@ -1,0 +1,30 @@
+syntax = "proto3";
+package users;
+option go_package = "./users";
+
+message User {
+    string Email = 1;
+    string Name = 2;
+    string Role = 3;
+}
+
+message CreateUserReq{
+    User User = 1;
+}
+
+message CreateUserRsp{}
+
+message LoginUserReq {
+    string Email = 1;
+    string Password = 2;
+}
+
+message LoginUserRsp {
+    string AccessToken = 1;
+    string RefreshToken = 2;
+}
+
+service Users {
+    rpc Login (LoginUserReq) returns (LoginUserRsp);   
+    rpc CreateUser (CreateUserReq) returns (CreateUserRsp);   
+}
